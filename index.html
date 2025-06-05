@@ -1,65 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Webpage Design</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoiceBuddy AI (CDN)</title>
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'dark-bg': '#111827',
+              'dark-card': '#1F2937',
+              'brand-purple': '#8B5CF6',
+              'brand-emerald': '#10B981',
+              'brand-blue': '#3B82F6',
+              'gray-950': '#030712',
+              'gray-900': '#111827',
+              'gray-800': '#1F2937',
+              'gray-100': '#F3F4F6',
+              'gray-300': '#D1D5DB',
+              'gray-400': '#9CA3AF',
+              'white': '#FFFFFF',
+            }
+          }
+        }
+      }
+    </script>
+
+    <!-- PrimeReact CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/primereact/resources/themes/lara-dark-purple/theme.css">
+    <link rel="stylesheet" href="https://unpkg.com/primereact/resources/primereact.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/primeicons/primeicons.css">
+
+    <!-- Lucide Icons (will be used via a global window object if possible, or SVG strings) -->
+    <script src="https://unpkg.com/lucide-react@0.316.0/dist/umd/lucide-react.js"></script>
+
+
+    <style>
+      body {
+        font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+        background-color: #030712; /* bg-gray-950 */
+        color: #F3F4F6; /* text-gray-100 */
+      }
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 8px; height: 8px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: #1f2937; border-radius: 10px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #4b5563; border-radius: 10px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: #6b7280;
+      }
+    </style>
 </head>
-<body>
+<body class="bg-gray-950">
+    <div id="app" class="p-4">
+        <h1 class="text-3xl font-bold text-brand-purple mb-6">VoiceBuddy AI (CDN Setup)</h1>
 
-    <div class="main">
-        <div class="navbar">
-            <div class="icon">
-                <h2 class="logo">PraRoz</h2>
-            </div>
-
-            <div class="menu">
+        <div id="sidebar" class="fixed top-0 left-0 h-screen w-64 bg-gray-900 p-4 transition-transform transform -translate-x-full sm:translate-x-0 custom-scrollbar overflow-y-auto">
+            <h2 class="text-2xl font-semibold text-white mb-6">VoiceBuddy</h2>
+            <nav>
                 <ul>
-                    <li><a href="#">HOME</a></li>
-                    <li><a href="#">ABOUT</a></li>
-                    <li><a href="#">SERVICE</a></li>
-                    <li><a href="#">DESIGN</a></li>
-                    <li><a href="#">CONTACT</a></li>
+                    <li class="mb-3"><button id="nav-profile" class="w-full text-left p-2 rounded-lg hover:bg-gray-800 text-gray-300 hover:text-white">Profile</button></li>
+                    <li class="mb-3"><button id="nav-agents" class="w-full text-left p-2 rounded-lg hover:bg-gray-800 text-gray-300 hover:text-white">AI Agents</button></li>
+                    <li class="mb-3"><button id="nav-transcripts" class="w-full text-left p-2 rounded-lg hover:bg-gray-800 text-gray-300 hover:text-white">Transcripts</button></li>
+                    <li class="mb-3"><button id="nav-pricing" class="w-full text-left p-2 rounded-lg hover:bg-gray-800 text-gray-300 hover:text-white">Pricing</button></li>
+                    <li class="mb-3"><button id="nav-logout" class="w-full text-left p-2 rounded-lg hover:bg-gray-800 text-gray-300 hover:text-white">Logout</button></li>
                 </ul>
-            </div>
-
-            <div class="search">
-                <input class="srch" type="search" name="" placeholder="Type To text">
-                <a href="#"> <button class="btn">Search</button></a>
-            </div>
-
-        </div> 
-        <div class="content">
-            <h1>Web Design & <br><span>Development</span> <br>Course</h1>
-            <p class="par">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt neque 
-                 expedita atque eveniet <br> quis nesciunt. Quos nulla vero consequuntur, fugit nemo ad delectus 
-                <br> a quae totam ipsa illum minus laudantium?</p>
-
-                <button class="cn"><a href="#">JOIN US</a></button>
-
-                <div class="form">
-                    <h2>Login Here</h2>
-                    <input type="email" name="email" placeholder="Enter Email Here">
-                    <input type="password" name="" placeholder="Enter Password Here">
-                    <button class="btnn"><a href="#">Login</a></button>
-
-                    <p class="link">Don't have an account<br>
-                    <a href="#">Sign up </a> here</a></p>
-                    <p class="liw">Log in with</p>
-
-                    <div class="icons">
-                        <a href="#"><ion-icon name="logo-facebook"></ion-icon></a>
-                        <a href="#"><ion-icon name="logo-instagram"></ion-icon></a>
-                        <a href="#"><ion-icon name="logo-twitter"></ion-icon></a>
-                        <a href="#"><ion-icon name="logo-google"></ion-icon></a>
-                        <a href="#"><ion-icon name="logo-skype"></ion-icon></a>
-                    </div>
-
-                </div>
-                    </div>
-                </div>
+            </nav>
         </div>
+
+        <main id="main-content" class="ml-0 sm:ml-64 p-6">
+            <h2 id="page-title" class="text-2xl font-semibold text-white mb-4">Welcome</h2>
+            <div id="page-content" class="bg-gray-900 p-6 rounded-xl shadow-2xl">
+                <p>Select a section from the sidebar.</p>
+                <!-- PrimeReact Button Test -->
+                <div id="button-test-container" class="mt-4"></div>
+            </div>
+        </main>
     </div>
-    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+
+    <!-- React and ReactDOM via CDN (needed for PrimeReact components) -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+
+    <script type="text/babel">
+      const { useEffect, useState } = React;
+      const { Button } = primereact.button; // Assuming PrimeReact components are available globally or under primereact object
+
+      // Simple Page Content Manager
+      const pageManager = {
+        profile: { title: "User Profile", content: "<p>User ID, Email, Account Status will be shown here.</p>" },
+        agents: { title: "Craft Your AI Masterpiece", content: "<p>AI Agents will be displayed here.</p>" },
+        transcripts: { title: "Transcripts", content: "<p>Call transcripts will be listed here.</p>" },
+        pricing: { title: "Choose Your Plan", content: "<p>Pricing plans will be shown here.</p>" },
+        logout: { title: "Logout", content: "<p>Logout action.</p>" }
+      };
+
+      function App() {
+        const [currentPage, setCurrentPage] = useState("profile");
+
+        useEffect(() => {
+          // Mount PrimeReact Button for testing
+          const container = document.getElementById('button-test-container');
+          if (container) {
+            const root = ReactDOM.createRoot(container);
+            root.render(<Button label="Test PrimeReact Button" icon="pi pi-check" className="p-button-success" />);
+          }
+        }, []);
+
+        useEffect(() => {
+          document.getElementById('page-title').innerText = pageManager[currentPage].title;
+          document.getElementById('page-content').innerHTML = pageManager[currentPage].content;
+        }, [currentPage]);
+
+        // Attach event listeners to sidebar buttons
+        useEffect(() => {
+          document.getElementById('nav-profile').onclick = () => setCurrentPage('profile');
+          document.getElementById('nav-agents').onclick = () => setCurrentPage('agents');
+          document.getElementById('nav-transcripts').onclick = () => setCurrentPage('transcripts');
+          document.getElementById('nav-pricing').onclick = () => setCurrentPage('pricing');
+          document.getElementById('nav-logout').onclick = () => {
+            setCurrentPage('logout');
+            console.log("Logout clicked");
+          };
+        }, []);
+
+
+        return (
+          <div>
+            {/* The static HTML part handles the main layout. React is used for dynamic content within #page-content and components. */}
+            {/* This is a simplified setup. A full SPA with React would typically render the whole UI. */}
+          </div>
+        );
+      }
+
+      // Mount the main App (even if it's simple)
+      // This is more to ensure React is working. Most logic will be vanilla JS for page switching for now.
+      const appRootElement = document.getElementById('app-react-root'); // Placeholder if we want a React root
+      // ReactDOM.createRoot(document.getElementById('app')).render(<App />);
+      // For now, just call App to set up listeners and the button
+      // App(); // Direct call might not work as expected for hooks.
+      // We'll rely on the script block executing and the useEffects within the conceptual App function.
+
+      // Initial setup for the button test without full App rendering for simplicity in this restricted env
+      const container = document.getElementById('button-test-container');
+      if (container) {
+        const root = ReactDOM.createRoot(container);
+        root.render(<Button label="Test PrimeReact Button" icon="pi pi-check" className="p-button-success" />);
+      }
+
+      // Setup navigation handlers
+      document.getElementById('nav-profile').onclick = () => {
+        document.getElementById('page-title').innerText = pageManager.profile.title;
+        document.getElementById('page-content').innerHTML = pageManager.profile.content;
+      };
+      document.getElementById('nav-agents').onclick = () => {
+        document.getElementById('page-title').innerText = pageManager.agents.title;
+        document.getElementById('page-content').innerHTML = pageManager.agents.content;
+      };
+      document.getElementById('nav-transcripts').onclick = () => {
+        document.getElementById('page-title').innerText = pageManager.transcripts.title;
+        document.getElementById('page-content').innerHTML = pageManager.transcripts.content;
+      };
+      document.getElementById('nav-pricing').onclick = () => {
+        document.getElementById('page-title').innerText = pageManager.pricing.title;
+        document.getElementById('page-content').innerHTML = pageManager.pricing.content;
+      };
+       document.getElementById('nav-logout').onclick = () => {
+        document.getElementById('page-title').innerText = pageManager.logout.title;
+        document.getElementById('page-content').innerHTML = pageManager.logout.content;
+        console.log("Logout action triggered.");
+      };
+
+      // Set initial page
+       document.getElementById('page-title').innerText = pageManager.profile.title;
+       document.getElementById('page-content').innerHTML = pageManager.profile.content;
+
+       console.log("Lucide icons object (expect errors if not loaded):", typeof lucide);
+       // Example: Create a Lucide icon (this would typically be within a React component)
+       // const IconComponent = lucide.User;
+       // if (IconComponent) {
+       //   const iconContainer = document.createElement('div');
+       //   ReactDOM.createRoot(iconContainer).render(React.createElement(IconComponent, { color: 'white', size: 24 }));
+       //   document.getElementById('page-content').appendChild(iconContainer);
+       // }
+
+
+    </script>
+
 </body>
-<body>
-    </html>
+</html>
